@@ -63,7 +63,7 @@ namespace WebApp_asp.net_core_and_react.js.Controllers
             {
                 if (!DeptExists(id))
                 {
-                    return NotFound();
+                    return NotFound("Depertment does not exist!");
                 }
                 else
                 {
@@ -71,7 +71,7 @@ namespace WebApp_asp.net_core_and_react.js.Controllers
                 }
             }
 
-            return NoContent();
+            return Content("Successfully Updated!");
         }
 
         // POST: api/DeptsApi
