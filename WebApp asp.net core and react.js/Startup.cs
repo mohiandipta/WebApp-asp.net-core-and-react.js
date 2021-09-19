@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using WebApp_asp.net_core_and_react.js.DAL;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace WebApp_asp.net_core_and_react.js
 {
@@ -30,6 +31,8 @@ namespace WebApp_asp.net_core_and_react.js
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
