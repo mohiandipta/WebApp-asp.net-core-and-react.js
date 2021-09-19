@@ -22,7 +22,7 @@ namespace WebApp_asp.net_core_and_react.js
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<CompanyDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("TestDBCS")));
+            services.AddDbContext<CompanyDbContext>(options => options.UseSqlServer("Data Source=devSql-2;Initial Catalog=TestDB;Integrated Security=True"));
             services.AddControllersWithViews();
 
             // In production, the React files will be served from this directory
