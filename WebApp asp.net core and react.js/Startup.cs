@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using WebApp_asp.net_core_and_react.js.DAL;
 
 namespace WebApp_asp.net_core_and_react.js
 {
@@ -20,7 +22,7 @@ namespace WebApp_asp.net_core_and_react.js
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddDbContext<CompanyDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("TestDBCS")));
             services.AddControllersWithViews();
 
             // In production, the React files will be served from this directory
