@@ -4,7 +4,7 @@ export class Dept {
     constructor() {
         this.deptNo = 0;
         this.dName = "";
-        this.Location = "";
+        this.location = "";
     }
 }
 
@@ -48,7 +48,11 @@ export class AddDept extends Component {
 
         const data = new FormData(event.target);
         if (this.state.dept.deptNo) {
-            var respose1 = fetch('api/deptsapi/', { method: 'POST', body: data })
+            var response1 = fetch('api/deptsapi/', + this.state.dept.deptNo, { method: 'PUT', body: data })
+            this.props.history.push("/fetch-depts")
+        }
+        else {
+            var response2 = fetch('api/deptsapi', { method: 'POST', body: data })
             this.props.history.push("/fetch-depts")
         }
     }
