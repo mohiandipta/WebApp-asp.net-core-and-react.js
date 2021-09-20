@@ -1,3 +1,4 @@
+import { event } from 'jquery';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -67,20 +68,21 @@ class FetchDepts extends Component {
     }
 
     handleDelete(id) {
-        if (!window.confirm("Are you sure? ypu want to delete?" + id)) {
+        // DELETE request with fetch
+        if (!window.confirm("Do you want to delete dept?" + id)) {
             return;
         }
         else {
-            fetch('api/deptsapi' + id, { method: 'delete' })
-
+            fetch('api/deptsapi/' + id, { method: 'DELETE' })
                 .then(data => {
                     this.setState({
                         data: this.state.depts.filter((rec) => {
                             return rec.deptNo != id;
                         })
-                    });
-                });
+                    })
+                })
         }
+        window.location.reload(false);
     }
 }
 
